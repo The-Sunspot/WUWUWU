@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container mt-3">
+
+  <form method="POST">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">参赛队伍编号</span>
+      </div>
+      <input type="text" name="teamnum" class="form-control"  placeholder="参赛队伍编号" required>
+      <div class="input-group-prepend">
+        <span class="input-group-text" >比赛项目</span>
+      </div>
+      <select name="type" class="form-control" >
+      <option>地质技能综合应用</option>
+      <option>野外地质技能</option>
+      <option>地质标本鉴定</option>
+      <option>地学知识</option>
+      </select>
+    </div>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>评委编号</th>
+			<th>占比(%)</th>
+			<th>成绩</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>评委1</td>
+			<td><input id="11" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+			<td><input id="12" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+		<tr>
+			<td>评委2</td>
+			<td><input id="21" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+			<td><input id="22" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+
+		<tr>
+			<td>评委3</td>
+			<td><input id="31" type="text" value="0.00"onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+			<td><input id="32" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+
+
+		<tr>
+			<td>评委4</td>
+			<td><input id="41" type="text" value="0.00"onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+			<td><input id="42" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+
+		<tr>
+			<td>评委5</td>
+			<td><input id="51" type="text" value="0.00"></td>
+			<td><input id="52" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+    <tr>
+			<td>评委6</td>
+			<td><input id="61" type="text" value="0.00"></td>
+			<td><input id="62" type="text" value="0.00" onkeyup=sum1(6)
+        onkeydown="  if(event.keyCode==13)event.keyCode=9"></td>
+		</tr>
+	</tbody>
+</table>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" value="0.00">最终成绩1（原始分均分）</span>
+      </div>
+      <input type="text" id="highscore" class="form-control" >
+      <div class="input-group-prepend">
+        <span class="input-group-text" value="0.00">最终成绩2（折算分）</span>
+      </div>
+      <input type="text" id="average" class="form-control" >
+      <div class="input-group-prepend">
+        <span class="input-group-text" value="0.00">最终成绩3（综合成绩录入）</span>
+      </div>
+      <input type="text" id="score" name="score" class="form-control"  required>
+    </div>
+
+
+    <button type="submit"  class="btn btn-primary">提交</button>
+    </div>
+  </form>
+<div id="zhanwei">-</div>
+  <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</div>
+
+
+{% endblock %}

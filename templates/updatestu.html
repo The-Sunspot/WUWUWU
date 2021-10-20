@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+
+  <form method="POST">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >选手姓名</span>
+      </div>
+      <input type="text" name="name1" class="form-control"  placeholder="选手1姓名" required>
+      <input type="text" name="name2" class="form-control"  placeholder="选手2姓名" required>
+      <input type="text" name="name3" class="form-control"  placeholder="选手3姓名" required>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">参赛学校</span>
+        <input type="text" name="school" class="form-control"  placeholder="参赛学校" required>
+      </div>
+      
+      <div class="input-group-prepend">
+        <span class="input-group-text">指导老师</span>
+        <input type="text" name="teacher" class="form-control"  placeholder="指导老师" required>
+      </div>
+      
+      <div class="input-group-prepend">
+        <span class="input-group-text">参赛队伍编号</span>
+        <input type="text" name="num" class="form-control"  placeholder="参赛队伍编号" required>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      {#<div class="input-group-prepend">
+        <span class="input-group-text" >成都理工会务组联系方式</span>
+        <input type="text" name="address" class="form-control"  placeholder="联系方式" required>
+      </div>#}
+        <button type="submit"  class="btn btn-primary">提交</button>
+        {#<a href="{{ url_for('filein') }}"><div class="btn btn-primary">Excel导入</div></a>#}
+      
+    </div>
+  </form>
+</div>
+
+
+
+<div class="container">
+<table class="table table-bordered">
+<thead>
+<th>参赛队伍编号</th>
+<th>选手1姓名</th>
+<th>选手2姓名</th>
+<th>选手3姓名</th>
+<th>参赛学校</th>
+<th>指导老师</th>
+{#<th>成都理工会务组联系方式</th>#}
+{# {% if current_user.is_authenticated %} #}
+<th>编辑队伍</th>
+<th>删除队伍</th>
+{# {% endif %} #}
+</thead>
+<tbody>
+{% for stu in student %}
+<tr>
+<td>{{stu.id}}</td>
+<td>{{stu.name1}}</td>
+<td>{{stu.name2}}</td>
+<td>{{stu.name3}}</td>
+<td>{{stu.school}}</td>
+<td>{{stu.teacher}}</td>
+{#<td>{{stu.address}}</td>#}
+{# {% if current_user.is_authenticated %} #}
+<td>
+<a class="btn btn-primary btn-sm" href="{{ url_for('edit', stu_id=stu.id) }}">编辑</a>
+</td>
+<td>
+     <form method="post" action="{{ url_for('delete_student', stu_id=stu.id) }}">
+        <input class="btn btn-primary btn-sm" type="submit" name="delete" value="删除" onclick="return confirm('Are you sure?')">
+    </form>
+</td>
+{# {% endif %} #}
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<script>
+</script>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+<li><a href="{{url_for('downloadforteam',type_='A')}}">A地质技能综合应用竞赛排名导出</a></li>
+<li><a href="{{url_for('downloadforteam',type_='B')}}">B野外地质技能竞赛排名导出</a></li>
+<li><a href="{{url_for('downloadforteam',type_='C')}}">C地质标本鉴定竞赛排名导出</a></li>
+<li><a href="{{url_for('downloadforteam',type_='D')}}">D地学知识抢答竞赛排名导出</a></li>
+<li><a href="{{url_for('downloadforschool',type_='ABC')}}">ABC三项比赛团体总分排名导出</a></li>
+<li><a href="{{url_for('downloadforschool',type_='ABCD')}}">ABCD四项比赛团体总分排名导出</a></li>
+<li><a href="{{url_for('downloadforteam',type_='sum')}}">单支参赛队伍总分排名导出</a></li>
+</ul>
+
+
+
+
+{% endblock %}

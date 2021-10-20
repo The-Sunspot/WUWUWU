@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>编辑信息</h3>
+<div class="container mt-3">
+<form method="POST">
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" >选手姓名</span>
+    </div>
+    <input type="text" name="name1" autocomplete="off" required value="{{ stu.name1 }}">
+    <input type="text" name="name2" autocomplete="off" required value="{{ stu.name2 }}">
+    <input type="text" name="name3" autocomplete="off" required value="{{ stu.name3 }}">
+
+    <div class="input-group-prepend">
+        <span class="input-group-text" >参赛学校</span>
+    </div>
+    <input type="text" name="school" autocomplete="off" required value="{{ stu.school }}">
+
+    <div class="input-group-prepend">
+        <span class="input-group-text" >指导老师</span>
+    </div>
+    <input type="text" name="teacher" autocomplete="off" required value="{{ stu.teacher }}">
+
+    <div class="input-group-prepend">
+        <span class="input-group-text" >参赛队伍编号</span>
+    </div>
+    <input type="text" name="num" autocomplete="off" required value="{{ stu.num }}">
+</div>
+
+    {#<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" >成都理工会务组联系方式</span>
+    </div>
+    <input type="text" name="address" autocomplete="off" required value="{{ stu.address }}">
+    #}
+       <button type="submit"  class="btn btn-primary">提交</button>
+</div>
+</form>
+
+
+</div>
+
+{% endblock %}

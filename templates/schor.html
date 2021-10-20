@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="form-inline">
+    <label><h1>ABCD四项比赛团体总分排名</h1></label>
+<input type="text" id="myInput" onkeyup="myFunction(0)" placeholder="输入学校名搜索..."  class="form-control">
+</form>
+<table class="table table-bordered" id="table">
+    <thead>
+        <th>参赛学校</th>
+        <th>地质技能综合应用</th>
+        <th>野外地质技能</th>
+        <th>地质标本鉴定</th>
+        <th>地学知识竞赛</th>
+        <th>得分</th>
+        <th>排名</th>
+    </thead>
+    <tbody>
+
+        {% for stu in school %}
+        <tr>
+            <td>{{ stu.name }}</td>
+            <td>{{ '%0.2f'| format(stu.maxs1|float) }}</td>
+            <td>{{ '%0.2f'| format(stu.maxs2|float) }}</td>
+            <td>{{ '%0.2f'| format(stu.maxs3|float) }}</td>
+            <td>{{ '%0.2f'| format(stu.maxs4|float) }}</td>
+            <td>{{ '%0.2f'| format(stu.totalmax|float) }}</td>
+            <td>{{loop.index}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div id="zhanwei">-</div>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

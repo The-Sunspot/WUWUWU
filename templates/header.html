@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+
+    <!-- 导航栏商标 -->
+    <a class="navbar-brand" href="{{ url_for('index') }}">第六届全国大学生地质技能竞赛评分管理系统</a>
+
+    <div>
+      <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('update_student')}}">基本信息输入</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('submitsheet')}}">评分表项输入</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="{{url_for('firstitem')}}">A地质技能综合应用竞赛排名</a>
+      </li>
+
+      <li class="nav-item">
+       <a class="nav-link" href="{{url_for('seconditem')}}">B野外地质技能竞赛排名</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="{{url_for('thirditem')}}">C地质标本鉴定竞赛排名</a>
+      </li>
+       <li class="nav-item">
+       <a class="nav-link" href="{{url_for('fourthitem')}}">D地学知识抢答竞赛排名</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('abcrank')}}">ABC三项比赛团体总分排名</a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{url_for('schoolrank')}}">ABCD四项比赛团体总分排名</a>
+       </li>
+       <li class="nav-item">
+       <a class="nav-link" href="{{url_for('totalrank')}}">单支参赛队伍总分排名</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('export')}}">导出</a>
+       </li>
+      </ul>
+    </div>
+
+
+    <!-- 导航入口 -->
+    <div>
+
+      <ul class="navbar-nav">
+        <!-- 条目 -->
+
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logout') }}">用户登出</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">用户登录</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+</nav>

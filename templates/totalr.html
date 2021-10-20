@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <h1>参赛队伍总得分</h1> -->
+<form class="form-inline">
+  <label><h1>单支参赛队伍总分排名</h1></label>
+  <input type="text" id="myInput1" onkeyup="myFunction(1)" placeholder="输入队伍编号搜索..."  class="form-control">
+    <input type="text" id="myInput0" onkeyup="myFunction(0)" placeholder="输入学校名搜索..."  class="form-control">
+
+    <table class="table table-bordered" id="table">
+        <thead>
+            <th>参赛学校</th>
+            <th>参赛队伍编号</th>
+            <th>地质技能综合应用</th>
+            <th>野外地质技能</th>
+            <th>地质标本鉴定</th>
+            <th>*地学知识(不纳入总分)</th>
+            <th>得分</th>
+            <th>排名</th>
+        </thead>
+        <tbody>
+
+            {% for stu in student %}
+            <tr>
+                <td>{{ stu.school }}</td>
+                <td>{{ stu.id }}</td>
+                <td>{{ '%0.2f'| format(stu.score1|float) }}</td>
+                <td>{{ '%0.2f'| format(stu.score2|float) }}</td>
+                <td>{{ '%0.2f'| format(stu.score3|float) }}</td>
+                <td>{{ '%0.2f'| format(stu.score4|float) }}</td>
+                <td>{{ '%0.2f'| format(stu.score-stu.score4|float) }}</td>
+                <td>{{ loop.index }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<div id="zhanwei">-</div>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+
+    
+    {% endblock %}
